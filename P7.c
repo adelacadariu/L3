@@ -16,7 +16,7 @@ int main()
 			nr = nr >> 1;
 		}
 	}
-	printf("Suma bitilor este %d\n", suma);
+	printf("Suma este %d\n", suma);
 	system("pause");
 	return 0;
 }
