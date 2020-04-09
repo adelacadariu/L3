@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <math.h>
+
+#define START 2
+
+void print_div(int n) {
+
+    /*Variabilele first j si ok ne vor ajuta
+    sa gasim primul j in care se intra in while
+    (pt a nu repeta valori dupa ii asociem lui i valoarea lui first j, in caz ca first_j<i)*/
+    int first_j;
+    int ok = 0; 
+
+    if (n == 4) {
+        printf("2 2\n");
+    }
+
+    for (int i = n / 2; i >= START; --i) {
+        int tmp = n; //auxiliar
+        for (int j = i; j >= START && i != 2; --j) {
+            if (ok == 0 && tmp % j == 0) { //retinem primul j la care se va intra in while
+                first_j = j;
+                ok = 1;
+            }
+            while (tmp % j == 0) {
+                printf("%d ", j);
+                tmp = tmp / j;
+            }
+        }
+        ok = 0;
+
+        if (first_j < i) { // in caz ca e mai mare, schimbam i-ul
+            i = first_j;
+        }
+        printf("\n");
+    }
+
+}
+
+int main() 
+{
+    print_div(16);
+    return 0;
+}
